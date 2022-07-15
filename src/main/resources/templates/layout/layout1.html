@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+th:fragment="layout(head, main)">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="_csrf" th:content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <title>백화::송이향버섯</title>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="icon" href="/images/icon/myicon.ico">
+    <!-- 공통적용할 css -->
+    <link rel="stylesheet" href="/css/common/reset.css">
+    <link rel="stylesheet" href="/css/common/common.css">
+    <link rel="stylesheet" href="/css/common/header.css">
+    <link rel="stylesheet" href="/css/common/footer.css">
+    <!-- summernote css/js -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=02cff8e32b884f2b68923f27459dc62e&libraries=services,clusterer,drawing"></script>
+    <th:block th:replace="${head}">page에서 설정한 head정보가 삽입되요</th:block>
+    
+</head>
+<body>
+    <header>
+    	<h1>헤더</h1>
+    	<div class="wrap  flex between  view-size">
+    		<section id="top-logo">
+    			<h1>로고</h1>
+    			<div class="wrap">
+    				<a href="/">BAEKHWA</a>
+    			</div>
+    		</section>
+    		<nav id="top-menu">
+    			<h1>메뉴</h1>
+    			<div class="wrap">
+    				<ul class="flex">
+    					<li><a href="/common/company">회사소개</a></li>
+    					<li><a href="/common/goods/1">백화고버섯</a></li>
+    					<li><a href="/common/goods/2">송이향버섯</a></li>
+    					<li><a href="/common/goods/3">기타상품</a></li>
+    					<li><a href="/common/coding/lecture">코딩강좌</a></li>
+    					
+    				</ul>
+    			</div>
+    		</nav>
+    		<section id="user-menu">
+    			<h1>유저메뉴</h1>
+    			<div class="wrap">
+    				<ul class="flex">
+    					<li sec:authorize="isAnonymous()">
+    						<a href="/loginPage">로그인</a>
+    						<a href="/common/signup">회원가입</a>
+    					</li>
+    					<li sec:authorize="isAuthenticated()">
+    						<!-- <span sec:authentication="name">username</span> -->
+    						<span sec:authentication="principal.name"></span>
+    						<button id="btn-logout">로그아웃</button>
+    					</li>
+    					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/home">관리자페이지</a></li>
+    				</ul>
+    			</div>
+    		</section>
+    		<script type="text/javascript">
+    			$(function () {
+    				$("#btn-logout").click(function(){
+    					var token = $("meta[name='_csrf']").attr("content");
+    	    			var header = $("meta[name='_csrf_header']").attr("content");
+    	    			
+    	    			$.ajax({
+    	    				beforeSend: function(xhr){xhr.setRequestHeader(header, token);},
+    	    				url:"/logout",
+    	    				type:"post",
+    	    				success:function(){
+    	    					location.href="/";
+    	    				}
+    	    			});
+    				});
+	    			
+    			});
+    		</script>
+    	</div>
+    </header>
+    <main th:replace="${main}">
+    	메인섹션이 삽입되는 영역입니다.
+    </main>
+    <footer>
+    	<h1>하단영역</h1>
+    	<div class="wrap">
+    		<section id="sns">
+    			<h1>sns</h1>
+    			<div class="wrap">
+    				<ul class="flex center">
+    					<li><a href="#" class="kakao"></a></li>
+    					<li><a href="#" class="blog"></a></li>
+    					<li><a href="#" class="youtube"></a></li>
+    					<li><a href="#" class="facebook"></a></li>
+    				</ul>
+    			</div>
+    		</section>
+    		<section>
+    			<h1>footer-links</h1>
+    			<div class="wrap">
+    			</div>
+    		</section>
+    		<section>
+    			<h1>footer-copyright</h1>
+    			<div class="wrap">
+    			</div>
+    		</section>
+    	</div>
+    </footer>
+</body>
+</html>
