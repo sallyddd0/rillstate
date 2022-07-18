@@ -95,7 +95,8 @@ menu>.wrap ul li:not(:first-child){
 }
 #logo > a > img{
 	border: 0;
-	width: 200px;
+	width: 160px;
+	height: 130px;
 }
 #left_menu{
 	float: left;
