@@ -21,10 +21,10 @@ class BaekhwaApplicationTests {
 	@Autowired
 	PasswordEncoder pe;
 	
-	//@Test
+	@Test
 	void 관리자생성() {
 		memberRepository.save(Member.builder()
-				.email("admin").pass(pe.encode("1111")).name("관리자").userIp("127.0.0.1")
+				.email("admin2").pass(pe.encode("1111")).name("관리자").userIp("127.0.0.1")
 				.build().addRole(MemberRole.ADMIN).addRole(MemberRole.USER));
 	}
 	

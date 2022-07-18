@@ -18,11 +18,11 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 		<section id="content">
 			<h1>메인컨텐츠</h1>
 			<div class="wrap view-size">
-				<section id="map-sec">
+				<!-- <section id="map-sec">
 					<h1>다음지도</h1>
 					<div id="map" style="width:1180px;height:600px;"></div>
 					<script type="text/javascript">
-						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 					    mapOption = {
 					        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 					        level: 3 // 지도의 확대 레벨
@@ -35,7 +35,7 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 						var geocoder = new kakao.maps.services.Geocoder();
 		
 						// 주소로 좌표를 검색합니다
-						geocoder.addressSearch('경기도 광주시 오포읍 오포로171번길 17-270 에이스팬트하우스', function(result, status) {
+						geocoder.addressSearch('경기 수원시 장안구 경수대로 893', function(result, status) {
 		
 						    // 정상적으로 검색이 완료됐으면 
 						     if (status === kakao.maps.services.Status.OK) {
@@ -53,7 +53,7 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 		
 						        // 인포윈도우로 장소에 대한 설명을 표시합니다
 						        var infowindow = new kakao.maps.InfoWindow({
-						            content: '<div style="width:150px;text-align:center;padding:6px 0;">우리집</div>'
+						            content: '<div style="width:150px;text-align:center;padding:6px 0;">홈구장</div>'
 						        });
 						        infowindow.open(map, marker);
 		
@@ -62,7 +62,7 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 						    } 
 						});    
 					</script>
-				</section>
+				</section> -->
 			</div>
 		</section>
 	</div>

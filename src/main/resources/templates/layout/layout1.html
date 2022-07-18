@@ -25,33 +25,14 @@ th:fragment="layout(head, main)">
 <body>
     <header>
     	<h1>헤더</h1>
-    	<div class="wrap  flex between  view-size">
-    		<section id="top-logo">
-    			<h1>로고</h1>
-    			<div class="wrap">
-    				<a href="/">BAEKHWA</a>
-    			</div>
-    		</section>
-    		<nav id="top-menu">
-    			<h1>메뉴</h1>
-    			<div class="wrap">
-    				<ul class="flex">
-    					<li><a href="/common/company">회사소개</a></li>
-    					<li><a href="/common/goods/1">백화고버섯</a></li>
-    					<li><a href="/common/goods/2">송이향버섯</a></li>
-    					<li><a href="/common/goods/3">기타상품</a></li>
-    					<li><a href="/common/coding/lecture">코딩강좌</a></li>
-    					
-    				</ul>
-    			</div>
-    		</nav>
-    		<section id="user-menu">
+    	<div>
+    		<div id="user-menu">
     			<h1>유저메뉴</h1>
     			<div class="wrap">
     				<ul class="flex">
     					<li sec:authorize="isAnonymous()">
     						<a href="/loginPage">로그인</a>
-    						<a href="/common/signup">회원가입</a>
+    						<a href="/sign/signup.html">회원가입</a>
     					</li>
     					<li sec:authorize="isAuthenticated()">
     						<!-- <span sec:authentication="name">username</span> -->
@@ -61,7 +42,23 @@ th:fragment="layout(head, main)">
     					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/home">관리자페이지</a></li>
     				</ul>
     			</div>
-    		</section>
+    		</div>
+    		<div id="top-menu">
+   				<div id="logo">
+   					<a href="/" ><img alt="릴스테이트" src="/images/logo_em.png"></a>
+   				</div>
+   				<ul class="flex" id="left_menu">
+   					<li><a href="/common/company">CLUB</a></li>
+   					<li><a href="/common/goods/1">MATCH</a></li>
+   					<li><a href="/common/goods/2">TICHET</a></li>
+   				</ul>
+   				<ul class="flex" id="right_menu">
+   					<li><a href="/common/goods/3">TEAM</a></li>
+   					<li><a href="/common/coding/lecture">MEDIA</a></li>
+   					<li><a href="/common/coding/lecture">TO.HILLS</a></li>
+   				</ul>
+    		</div>
+    		
     		<script type="text/javascript">
     			$(function () {
     				$("#btn-logout").click(function(){

@@ -18,7 +18,7 @@ public class PageController {
 	}
 	
 	
-	@GetMapping("/common/signup")
+	@GetMapping("/signup")
 	public String signup() {
 		return "sign/signup";
 	}
