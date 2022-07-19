@@ -61,7 +61,7 @@ body > header {
  }
 #top-menu > ul > li {
     text-align: center;
-    width: 25%;
+    width: 30%;
     float: left;
     position: relative;
 }
@@ -70,7 +70,7 @@ body > header {
     font-family: Notosans-Bold;
     font-weight: 400;
     color: #ffffff;
-    line-height: 140px;
+    line-height: 110px;
 }
 header>.wrap{
 	height: 90px;

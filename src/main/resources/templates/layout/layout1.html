@@ -8,7 +8,7 @@ th:fragment="layout(head, main)">
 	<meta name="_csrf" th:content="${_csrf.token}"/>
 	<!-- default header name is X-CSRF-TOKEN -->
 	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-    <title>백화::송이향버섯</title>
+    <title>rillstate</title>
 	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="icon" href="/images/icon/myicon.ico">
@@ -32,7 +32,7 @@ th:fragment="layout(head, main)">
     				<ul class="flex">
     					<li sec:authorize="isAnonymous()">
     						<a href="/loginPage">로그인</a>
-    						<a href="/sign/signup.html">회원가입</a>
+    						<a href="/sign/signup">회원가입</a>
     					</li>
     					<li sec:authorize="isAuthenticated()">
     						<!-- <span sec:authentication="name">username</span> -->
@@ -48,14 +48,14 @@ th:fragment="layout(head, main)">
    					<a href="/" ><img alt="릴스테이트" src="/images/logo_em.png"></a>
    				</div>
    				<ul class="flex" id="left_menu">
-   					<li><a href="/common/company">CLUB</a></li>
-   					<li><a href="/common/goods/1">MATCH</a></li>
-   					<li><a href="/common/goods/2">TICHET</a></li>
+   					<li><a href="/board/club">CLUB</a></li>
+   					<li><a href="/board/match">MATCH</a></li>
+   					<li><a href="/board/tichet">TICHET</a></li>
    				</ul>
    				<ul class="flex" id="right_menu">
-   					<li><a href="/common/goods/3">TEAM</a></li>
-   					<li><a href="/common/coding/lecture">MEDIA</a></li>
-   					<li><a href="/common/coding/lecture">TO.HILLS</a></li>
+   					<li><a href="/board/team">TEAM</a></li>
+   					<li><a href="/board/media">MEDIA</a></li>
+   					<li><a href="/board/to.hills">TO.HILLS</a></li>
    				</ul>
     		</div>
     		
@@ -90,8 +90,8 @@ th:fragment="layout(head, main)">
     			<div class="wrap">
     				<ul class="flex center">
     					<li><a href="#" class="kakao"></a></li>
-    					<li><a href="#" class="blog"></a></li>
-    					<li><a href="#" class="youtube"></a></li>
+    					<li><a href="https://post.naver.com/my.naver?memberNo=38749672" class="blog"></a></li>
+    					<li><a href="https://www.youtube.com/channel/UC66i8pv50mFxMVvpKV6QTSA" class="youtube"></a></li>
     					<li><a href="#" class="facebook"></a></li>
     				</ul>
     			</div>
