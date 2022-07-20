@@ -26,17 +26,16 @@ public class CustomerContoller {
 	*/
 	
 	//ajax로 요청시 리턴 list.html페이지가 response된다. --> result 
-	@GetMapping("/customer/{divno}")
+	@GetMapping("/tohills/{divno}")
 	public String list(@PathVariable int divno, Model model) {
 		service.list(model, divno);
-		return "cus/faq/list";
+		return "toHills/list";
 	}
 	
 	//단순 페이지 이동
-	@GetMapping("/customer")
-	public String  customer() {
-		return "cus/faq/index";
-	}
+	/*
+	 * @GetMapping("/tohills") public String customer() { return "toHills/index"; }
+	 */
 	
 	
 	/*

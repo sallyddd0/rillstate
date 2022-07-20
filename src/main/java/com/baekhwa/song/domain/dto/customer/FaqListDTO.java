@@ -1,9 +1,9 @@
 package com.baekhwa.song.domain.dto.customer;
 
+import com.baekhwa.song.domain.entity.Division;
 import com.baekhwa.song.domain.entity.FaqEntity;
 
 import lombok.Getter;
-import net.bytebuddy.implementation.bytecode.Division;
 
 @Getter	
 public class FaqListDTO {

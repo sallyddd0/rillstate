@@ -13,12 +13,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import net.bytebuddy.implementation.bytecode.Division;
 
-@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Getter
 @Entity
 public class FaqEntity {

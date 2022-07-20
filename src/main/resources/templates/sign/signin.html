@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" 
-th:replace="~{layout/layout2 :: layout(~{::head}, ~{::main})}">
+th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 <head>
     <link rel="stylesheet" href="/css/common/signin.css">
     <meta name="_csrf" th:content="${_csrf.token}"/>
@@ -8,18 +8,17 @@ th:replace="~{layout/layout2 :: layout(~{::head}, ~{::main})}">
 </head>
 <main>
 	<h1>메인컨텐츠</h1>
-	<div class="wrap">
-		<div><a href="/">HOME</a></div>
+	<div class="wrap view-size">
 		<p>로그인</p>
 		<div class="error" th:if="${param.errMsg}">
 			<span>이메일 또는 비밀번호를 확인하세요</span>
 		</div>
 		<form action="/signin" method="post">
-			<ul>
-				<li>
+			<ul id="loginform" >
+				<li class="form-group">
 					<input type="text" name="email" placeholder="이메일입력">
 				</li>
-				<li>
+				<li class="form-group">
 					<input type="password" name="pass" placeholder="비밀번호입력">
 				</li>
 				<li>

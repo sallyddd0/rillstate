@@ -22,5 +22,10 @@ public class PageController {
 	public String signup() {
 		return "sign/signup";
 	}
+	
+	@GetMapping("/tohills")
+	public String toHills() {
+		return "toHills/index";
+	}
 
 }

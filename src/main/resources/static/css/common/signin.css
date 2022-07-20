@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+*{ 
+	margin: 0; padding: 0; box-sizing: border-box;
+	}
 .error{
 	background-color: red;
 	padding: 1em 0;
@@ -7,6 +9,69 @@
 	color: white;
 	font-weight: bold;
 }
-body > main > div > form {
-	
+.view-size{
+	width: 460px; 
+	margin: 0 auto;
+	}
+body {
+	background-color:#f5f6f7;
 }
+body > main {
+	margin-top: 20px;
+}
+body > main > div > p{
+	font-size: 50px;
+	text-align: center;
+}
+#loginform{
+	text-align: center;
+	padding-top: 10px;
+}
+.form-group{
+    width:350px;
+    margin-left:auto;
+    margin-right:auto;
+}
+input{
+	width: 100%;
+	height: 70%;
+	padding-left: 10px;
+	border-radius: 2px;
+}
+#loginform > li{
+	height: 51px;
+}
+button{
+    background-color: rgb(80,183,72);
+	color: white;
+	border-radius: 2px;
+	margin-left: 10px;
+	width: 100%;
+	height: 70%;
+	margin-bottom:30px;
+	padding: 0;
+}
+
+.form-check{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.easy-login{
+    font-weight:800;
+}
+body > main > div > div:nth-child(3) > a{
+    border:1px solid #03c75b;
+    background-color:white;
+    color:black;
+    font-size:80%;
+    width:170px;
+}
+.btn.btn-secondary.btn-lg{
+    border:1px solid #03c75b;
+    background-color:white;
+    color:black;
+    font-size:80%;
+    width:170px;
+}
+

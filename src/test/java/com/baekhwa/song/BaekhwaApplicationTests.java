@@ -1,5 +1,7 @@
 package com.baekhwa.song;
 
+import java.util.stream.IntStream;
+
 import javax.transaction.Transactional;
 
 import org.junit.jupiter.api.Test;
@@ -8,6 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 
+import com.baekhwa.song.domain.entity.Division;
+import com.baekhwa.song.domain.entity.FaqEntity;
+import com.baekhwa.song.domain.entity.FaqEntityRepository;
 import com.baekhwa.song.domain.entity.Member;
 import com.baekhwa.song.domain.entity.MemberRepository;
 import com.baekhwa.song.security.MemberRole;
@@ -19,7 +24,27 @@ class BaekhwaApplicationTests {
 	MemberRepository memberRepository;
 	
 	@Autowired
+	FaqEntityRepository faqEntityRepository;
+	
+	@Autowired
 	PasswordEncoder pe;
+	
+	//@Test
+		void 테스트데이터(){
+			IntStream.rangeClosed(1, 10).forEach(i->{
+				
+				
+				Division[] disv=Division.values();
+				for(int x=0; x<disv.length; x++) {		
+				
+				faqEntityRepository.save(FaqEntity.builder()
+						.question(disv[x].name()+ "질문"+i)
+						.answer(disv[x].name()+"답변"+i).division(disv[x])
+						.build());
+				}
+			});
+			
+		}
 	
 	@Test
 	void 관리자생성() {

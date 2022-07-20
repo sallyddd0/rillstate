@@ -7,15 +7,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Division {
 	
-	USE("사이트 이용","uses"),
-	POINT("포인트","points"),
-	MEMBER("회원","members"),
-	SHIP("멤버십","ships"),
-	ONLINE("온라인","onlines"),
-	BENEFIT("할인혜택","benefits"),
-	TICKET("관람권","ticket"),
-	STORE("스토어","store"),
-	SPECIAL("스페셜관","special");
+	NOTICE("공지사항","notice"),
+	PICTURE("사진","picture"),
+	GOODS("굿즈","goods"),
+	FROMRILLS("릴스로부터","fromHills"),
+	TORILLS("릴스에게","tohills"),
+	COMMUNITY("커뮤니티","community");
 	
 	final String title;
 	final String url;

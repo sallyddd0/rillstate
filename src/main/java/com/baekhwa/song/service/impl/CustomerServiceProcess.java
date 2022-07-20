@@ -27,7 +27,7 @@ public class CustomerServiceProcess implements CustomerService{
 			if(div.equals(di.getUrl())) division=di; 
 		}
 		
-		model.addAttribute("list",   repository.findAllByDivision(division).stream()
+		model.addAttribute("list", repository.findAllByDivision(division).stream()
 				.map(FaqListDTO::new)
 				.collect(Collectors.toList()) );
 		
