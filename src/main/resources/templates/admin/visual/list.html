@@ -17,7 +17,6 @@ th:replace="~{layout/layout-admin :: layout(~{::head}, ~{::main})}">
 					<td>타이틀</td>
 					<td>서브타이틀</td>
 					<td>적용여부</td>	
-					<td>순서</td>
 					<td>관리</td>	
 				</tr>
 			</thead>
@@ -34,7 +33,6 @@ th:replace="~{layout/layout-admin :: layout(~{::head}, ~{::main})}">
 						<label th:for="|cb-isShow-${i.count}|">적용 됨</label>
 						<input th:id="|cb-isShow-${i.count}|" class="cb-isShow" type="checkbox"  th:checked="${dto.isShow}">
 					</td>	
-					<td>[[${dto.num}]]</td>
 					<td>
 						<button type="button" class="btn-del">삭제</button>
 					</td>			

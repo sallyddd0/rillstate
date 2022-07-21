@@ -30,7 +30,7 @@ public class MemberServiceProcess implements MemberService {
 		
 		//user롤 적용회원가입
 		repository.save(dto.toMember().addRole(MemberRole.USER));
-		return "redirect:/login";
+		return "redirect:/loginPage";
 	}
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.baekhwa.song.domain.dto.member.MemberInsertDTO;
 import com.baekhwa.song.service.MemberService;
-import com.baekhwa.song.service.mailService;
+import com.baekhwa.song.service.MailService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,6 +20,7 @@ public class MemberController {
 	
 	
 	private final MemberService service;
+	private final MailService mailService;
 	
 	@PostMapping("/common/signup")
 	public String signup(MemberInsertDTO dto, HttpServletRequest request) {

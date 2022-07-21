@@ -22,3 +22,6 @@
 #sns>.wrap ul li a.facebook{
 	background-image: url("/images/icon/sns_facebook.png");
 }
+#sns > div > ul{
+	margin-top: 50px;
+}

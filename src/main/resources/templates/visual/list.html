@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" >
-<ul class="vimg-wrap   flex">
+<ul class="vimg-wrap  flex">
 	<!-- for(VisualListDTO dto : list){} -->
 	<li class="vimg" th:each="dto : ${list}">
 		<a th:href="${dto.link}" class="bg " th:style="|background-image: url(${dto.url+dto.orgName});|">
@@ -31,7 +31,7 @@ $(function(){
 	//비주얼 이미지에 마우스 올라갈때
 	$(".area").hover( stop ,function(){myTimeout = setTimeout(start, 3000);});
 	
-	//처음로딩시 타이머로 이미지 시작
+	//처음 로딩시 타이머로 이미지 시작
 	myTimeout = setTimeout(start, 3000);
 	
 });

@@ -66,7 +66,7 @@ public class VisualController {
 	//등록페이지이동
 	@GetMapping("/admin/visuals/write")
 	public String write() {
-		return "/admin/visual/write";
+		return "admin/visual/write";
 	}
 	
 	

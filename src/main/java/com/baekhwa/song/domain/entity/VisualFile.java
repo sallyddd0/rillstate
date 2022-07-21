@@ -31,7 +31,6 @@ public class VisualFile {
 	private long size;
 	private String title;
 	private String sub;
-	private long num;
 	private boolean isShow;
 	
 	public VisualFile updateIsShow(boolean isShow) {

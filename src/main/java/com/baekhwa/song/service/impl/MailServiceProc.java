@@ -9,10 +9,10 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.baekhwa.song.service.mailService;
+import com.baekhwa.song.service.MailService;
 
 @Service
-public class MailServiceProc implements mailService{
+public class MailServiceProc implements MailService{
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -28,7 +28,7 @@ public class MailServiceProc implements mailService{
 		//*
 		SimpleMailMessage message=new SimpleMailMessage();
 		String code=createKey();
-		message.setFrom("treacle0089@gmail.com");//보내는메일주소
+		message.setFrom("og82497@gmail.com");//보내는메일주소
 		message.setTo(email);//메일을 받을 주소
 		message.setSubject("[rillstate ]멤버쉽가입을 위한 인증메일입니다.");
 		//message.setText("회원가입을위한 인증번호입니다. 인증번호 : "+ System.nanoTime());

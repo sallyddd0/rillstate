@@ -12,4 +12,9 @@ public class AdminController {
 	public String adminHome() {
 		return "/admin/default";
 	}
+	
+	@GetMapping("goods")
+	public String goods() {
+		return "admin/goods/write";
+	}
 }

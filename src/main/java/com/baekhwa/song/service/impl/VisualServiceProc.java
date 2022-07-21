@@ -33,8 +33,9 @@ public class VisualServiceProc implements VisualService {
 		FileData fileData=MyFileUtils.upload(vimg, url);
 		dto.addFileData(fileData);
 		//db저장
-		long lastNum=visualFileRepository.getLastNum();
-		dto.setNum(++lastNum);
+		/*
+		 * long lastNum=visualFileRepository.getLastNum(); dto.setNum(++lastNum);
+		 */
 		
 		visualFileRepository.save(dto.toVisualFile());
 		return "redirect:/admin/visuals";
@@ -48,12 +49,12 @@ public class VisualServiceProc implements VisualService {
 		//long lastNum=visualFileRepository.getLastNum();
 		//System.out.println(lastNum);
 		
-		return "/admin/visual/list";
+		return "admin/visual/list";
 	}
 
 	@Override
 	public String indexList(Model model) {
-		model.addAttribute("list", visualFileRepository.findAllByIsShowOrderByNum(true)
+		model.addAttribute("list", visualFileRepository.findAllByIsShow(true)
 				.stream().map(VisualListDTO::new).collect(Collectors.toList()));
 		return "/visual/list";//
 	}

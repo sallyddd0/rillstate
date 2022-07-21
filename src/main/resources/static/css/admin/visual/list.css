@@ -3,3 +3,7 @@
 input:read-only{
 	border: none;
 }
+#visual{
+	width: 1250px;
+	height: 700px;
+}
