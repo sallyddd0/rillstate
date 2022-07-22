@@ -4,6 +4,9 @@
 	line-height: 65px;
 	border-bottom: 1px solid #a9a9a9;
 }
+#content > div > p{
+	font-size: 40px;
+}
 .t1{
 	display: inline-block;
 	width: 180px;

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+input[type=file]{
+	display: none !important;
+}
+input[type=file]+label {
+	display: block; 
+	width: 100%;
+	height: 100px;
+	background-color: rgba(155,155,155, 0.2);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 98px;
+	text-align: center;
+	border: 1px dotted rgba(0,0,0, 0.2);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}

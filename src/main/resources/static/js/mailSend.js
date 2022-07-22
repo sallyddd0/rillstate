@@ -2,7 +2,7 @@
  * 
  */
 //var mailKey=""; 
-var createdDate;
+var myTimeout;
 $(function(){
 	$("#key-wrap").hide();
 	
@@ -21,33 +21,10 @@ $(function(){
 			}
 		});
 	});
-	var myTimeout;
-	function start(targetTime){
-		
-		//var targetTime=ctime+(1000*60*5);
-		//var currTime=new Date();
-		//console.log(targetTime);
-		//console.log(currTime.getTime());
-		var seconds=(targetTime-new Date().getTime())/1000;
-		var minute=Math.floor(seconds/60);
-		var second=Math.floor(seconds%60);
-		
-		console.log(minute +":"+second);
-		//console.log("차이:"+(targetTime-currTime));//300,000
-		if(seconds>1){
-			$(".time").text(minute +":"+second);
-			myTimeout = setTimeout(start, 1000,targetTime);
-			
-		}else{
-			clearTimeout(myTimeout);
-			$(".time").text("00:00");
-			$.get("/request-key/remove",function(){});
-		}
-	}
 	
 	$("#key").blur(function(){
 		//console.log("입력한 코드: "+$(this).val());
-		//var scode=[[${session.mailKey}]];//하시면 안되요: 페이지로딩시 결정되는 session 정보입니다.
+		//var scode=[[${session.mailKey}]];//하시면 않되요: 페이지로딩시 결정되는 session 정보입니다.
 		//name이 생략된 get 요청방법
 		var inputKey=$(this).val();
 		
@@ -64,4 +41,27 @@ $(function(){
 			
 		});
 	});
+	
 });
+function start(targetTime){
+	//var targetTime=ctime+(1000*60*5);
+	//var currTime=new Date();
+	//console.log(targetTime);
+	//console.log(currTime.getTime());
+	var seconds=(targetTime-new Date().getTime())/1000;
+	var minute=Math.floor(seconds/60);
+	var second=Math.floor(seconds%60);
+	
+	console.log(minute +":"+second);
+	//console.log("차이:"+(targetTime-currTime));//300,000
+	if(seconds>1){
+		$(".time").text(minute +":"+second);
+		myTimeout = setTimeout(start, 1000,targetTime);
+		
+	}else{
+		clearTimeout(myTimeout);
+		$(".time").text("00:00");
+		$.get("/request-key/remove",function(){});
+	}
+}
+	

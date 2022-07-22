@@ -20,10 +20,10 @@ public class GoodsFile {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private long no;
-	private String link; //이미지 클릭하면 이동하는페이지 url
 	private String url;
 	private String orgName;
 	private String newName;
+	private boolean isDefImg;
 	private long size;
 	
 	

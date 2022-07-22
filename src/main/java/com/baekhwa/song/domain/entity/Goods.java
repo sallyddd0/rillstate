@@ -5,12 +5,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,10 +56,10 @@ public class Goods extends BaseTimeEntity{
 	@ElementCollection
 	private Set<Size> size=new HashSet<>();
 	
-	//1:N 단방향 설정
+	//1:N 단방향설정 연관테이블 생성시키지 않기위해 @JoinColumn 해주어야한다
 	@Builder.Default
 	@JoinColumn(name = "gno") //fk이름설정가능 - default: Goods_Entity_gno
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<GoodsFile> files=new ArrayList<>();
 	
 	public Goods addFile(GoodsFile file) {
