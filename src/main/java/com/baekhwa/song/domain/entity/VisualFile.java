@@ -31,6 +31,7 @@ public class VisualFile {
 	private long size;
 	private String title;
 	private String sub;
+	private long num;
 	private boolean isShow;
 	
 	public VisualFile updateIsShow(boolean isShow) {
@@ -38,7 +39,7 @@ public class VisualFile {
 		return this;
 	}
 
-	public VisualFile updateTiele(String title) {
+	public VisualFile updateTitle(String title) {
 		this.title=title;
 		return this;
 	}
@@ -55,5 +56,6 @@ public class VisualFile {
 		this.link=dto.getLink();
 		return this;
 	}
+
 
 }

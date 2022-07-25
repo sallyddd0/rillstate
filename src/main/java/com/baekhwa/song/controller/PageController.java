@@ -28,4 +28,8 @@ public class PageController {
 		return "toHills/index";
 	}
 
+	@GetMapping("/goods")
+	public String goods() {
+		return "goods/index";
+	}
 }

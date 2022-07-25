@@ -17,7 +17,7 @@ function fileUpload(){
 		return;	
 	}
 	if(file.size> (1024*1024*5) ){
-		alert("이미즈 용량은 1MB 까지만 적용하세요");
+		alert("이미지 용량은 1MB 까지만 적용하세요");
 		return;}
 	data=new FormData();
 	data.append("file",file );

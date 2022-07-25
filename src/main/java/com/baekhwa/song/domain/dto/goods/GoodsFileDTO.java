@@ -13,6 +13,7 @@ public class GoodsFileDTO {
 	private String newName;
 	private boolean isDefImg;
 	private long size;
+	
 	public GoodsFileDTO(GoodsFile e) {
 		this.no = e.getNo();
 		this.url = e.getUrl();

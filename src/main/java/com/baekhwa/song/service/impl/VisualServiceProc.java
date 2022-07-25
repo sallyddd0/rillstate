@@ -3,8 +3,6 @@ package com.baekhwa.song.service.impl;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -33,10 +31,9 @@ public class VisualServiceProc implements VisualService {
 		FileData fileData=MyFileUtils.upload(vimg, url);
 		dto.addFileData(fileData);
 		//db저장
-		/*
-		 * long lastNum=visualFileRepository.getLastNum(); dto.setNum(++lastNum);
-		 */
-		
+		long lastNum=visualFileRepository.getLastNum(); 
+		dto.setNum(++lastNum);
+		 
 		visualFileRepository.save(dto.toVisualFile());
 		return "redirect:/admin/visuals";
 	}
@@ -49,12 +46,12 @@ public class VisualServiceProc implements VisualService {
 		//long lastNum=visualFileRepository.getLastNum();
 		//System.out.println(lastNum);
 		
-		return "admin/visual/list";
+		return "/admin/visual/list";
 	}
 
 	@Override
 	public String indexList(Model model) {
-		model.addAttribute("list", visualFileRepository.findAllByIsShow(true)
+		model.addAttribute("list", visualFileRepository.findAllByIsShowOrderByNum(true)
 				.stream().map(VisualListDTO::new).collect(Collectors.toList()));
 		return "/visual/list";//
 	}
@@ -72,7 +69,7 @@ public class VisualServiceProc implements VisualService {
 	public boolean updateTitle(long vno, String title) {
 		Optional<VisualFile> result=visualFileRepository.findById(vno);
 		if(result.isEmpty())return false;
-		visualFileRepository.save(result.get().updateTiele(title));
+		visualFileRepository.save(result.get().updateTitle(title));
 		return true;
 	}
 

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 <ul th:each="dto : ${list}" class="flex" >
 	<li >
-		<a th:href="|/common/goods/${dto.gno}|"><img alt="대표이미지" height="100px" 
+		<a th:href="|/board/goods/${dto.gno}|"><img alt="대표이미지" height="100px" 
 		th:src="${dto.defImgUrl}">
 		</a>
 	</li>

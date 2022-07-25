@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.baekhwa.song.domain.dto.GoodsInsertDTO;
+import com.baekhwa.song.domain.dto.goods.GoodsInsertDTO;
 import com.baekhwa.song.service.GoodsService;
 
 @Controller
@@ -21,16 +21,17 @@ public class GoodsController {
 	
 	@ResponseBody
 	@PostMapping("/admin/goods/fileupload")
-	public String fileupload(MultipartFile file) {
-		
+	public String tempFileupload(MultipartFile file) {
 		return service.tempFileupload(file);
 	}
+	
 	@GetMapping("/admin/goods")
 	public String list(Model model) {
 		return service.list(model);
 	}
-	@GetMapping(path = {"/common/goods/{gno}"})
-	public String indexlist(@PathVariable long gno,Model model) {
+	
+	@GetMapping("/common/goods")
+	public String indexlist (Model model) {
 		return service.indexlist(model);
 	}
 	@GetMapping(path = {"/common/goods/{gno}"})
@@ -40,7 +41,6 @@ public class GoodsController {
 	
 	@PostMapping("/admin/goods")
 	public String goods(GoodsInsertDTO dto) {
-		
 		return service.save(dto);
 	}
 }

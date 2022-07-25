@@ -68,4 +68,7 @@ public class Goods extends BaseTimeEntity{
 		
 	}
 
+
+	
+
 }

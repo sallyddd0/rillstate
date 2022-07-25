@@ -9,7 +9,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VisualFileRepository extends JpaRepository<VisualFile, Long>{
 
-	List<VisualFile> findAllByIsShow(boolean isShow);
+	List<VisualFile> findAllByIsShowOrderByNum(boolean isShow);
+
+	@Query("select max(v.num) from VisualFile v")
+	long getLastNum();
 
 
 	

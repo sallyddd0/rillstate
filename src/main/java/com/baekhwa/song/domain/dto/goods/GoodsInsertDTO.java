@@ -1,4 +1,4 @@
-package com.baekhwa.song.domain.dto;
+package com.baekhwa.song.domain.dto.goods;
 
 import com.baekhwa.song.domain.entity.Goods;
 

@@ -13,23 +13,17 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 	
 </head>
 <main>
-	<h1>상품 detail페이지</h1>
+	<h1>상품 리스트페이지</h1>
 	<div class="wrap">
 		<section id="goods-reg">
-			<h1>상품등록</h1>
+			<h1>상품리스트</h1>
 				<div class="wrap">
-					<p>상품리스츠</p>
-					<ul th:each="dto : ${detail}" >
-						<li >
-							<th:block th:each="f : ${dto.files}">
-							<img th:if="${f.isDefImg}" alt="이미지" height="500px" th:src="${f.url+f.orgName}">
-							</th:block>
-							<div>
-								<th:block th:each="f : ${dto.files}">
-								<img th:unless="${f.isDefImg}" alt="추가이미지" height="100px" th:src="${f.url+f.orgName}">
-								</th:block>
-							</div>						
-						</li>
+					<p>상품 리스트</p>
+				<ul th:each="dto : ${list}" class="flex" >
+					<li >
+						<img  alt="이미지" height="100px" 
+						th:src="${dto.defImgUrl}">
+					</li>
 						<li>[[${dto.name}]]</li>
 						<li>[[${dto.price}]]</li>
 						<li>[[${dto.sale}]]</li>

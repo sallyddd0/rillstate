@@ -3,7 +3,6 @@ package com.baekhwa.song.service.impl;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.baekhwa.song.domain.dto.GoodsInsertDTO;
 import com.baekhwa.song.domain.dto.goods.GoodsDetailDTO;
+import com.baekhwa.song.domain.dto.goods.GoodsInsertDTO;
 import com.baekhwa.song.domain.dto.goods.GoodsListDTO;
 import com.baekhwa.song.domain.entity.Goods;
 import com.baekhwa.song.domain.entity.GoodsFile;
@@ -23,6 +22,9 @@ import com.baekhwa.song.service.GoodsService;
 @Service
 public class GoodsServiceProc implements GoodsService {
 
+	@Autowired
+	GoodsFileRepository repository;
+
 	@Override
 	public String tempFileupload(MultipartFile file) {
 		
@@ -31,8 +33,8 @@ public class GoodsServiceProc implements GoodsService {
 
 		try {
 			File location=cpr.getFile();
-			File utargetFile=new File(location, file.getOriginalFilename());
-			file.transferTo(utargetFile);
+			File targetFile=new File(location, file.getOriginalFilename());
+			file.transferTo(targetFile);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -41,9 +43,6 @@ public class GoodsServiceProc implements GoodsService {
 		return path+ file.getOriginalFilename(); // /images/goods/temp/파일이름.jpg
 	}
 	
-	@Autowired
-	GoodsFileRepository repository;
-
 	@Override
 	public String save(GoodsInsertDTO dto) {
 		System.out.println(dto);
@@ -67,14 +66,13 @@ public class GoodsServiceProc implements GoodsService {
 			GoodsFile defGoodsFile=GoodsFile.builder()
 			.newName(name).orgName(name).size(size).isDefImg(true).url("/images/goods/")
 			.build();
-			
 			/////////////////////////////////////////////////////////////////////
 			File addFile=new File(root, add);
 			addFile.renameTo(new File(root.getParent(),add));
 			name=addFile.getName();
 			size=addFile.length();
 			GoodsFile addGoodsFile=GoodsFile.builder()
-			.newName(name).orgName(name).size(size).isDefImg(true)
+			.newName(name).orgName(name).size(size).url("/images/goods/")
 			.build();
 			
 			repository.save(entity.addFile(defGoodsFile).addFile(addGoodsFile));
@@ -84,7 +82,7 @@ public class GoodsServiceProc implements GoodsService {
 			e.printStackTrace();
 		}
 		
-		return "redirect:home";
+		return "redirect:goods";
 	}
 
 	@Override

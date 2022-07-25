@@ -32,8 +32,8 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorize ->
                         authorize
+                        		.antMatchers("/", "/common/**","/request-key/*","/tohills","/tohills/*","/sign/*","/goods","/goods/*").permitAll()
                         		.antMatchers("/css/**","/js/**","/images/**", "/favicon.ico*","/summernote/**").permitAll()
-                                .antMatchers("/", "/common/**","/request-key/*","/tohills","/tohills/*","/sign/*").permitAll()
                                 .antMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 );
