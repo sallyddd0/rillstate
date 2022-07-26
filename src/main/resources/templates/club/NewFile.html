@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+    function LeftPositionON(posNm) {
+        $("#posUL > li").removeClass("on");
+        $("#liPos" + posNm).addClass("on");
+    }
+
+    $(document).ready(function (e) {
+
+
+        //페이지 사이즈 조정
+        var win_w = $(window).width();
+        var win_h = $(window).height();
+
+        container_padding(win_w);
+        sub_menu_left(win_w);
+        player_position(win_h)
+
+
+        $(".pannel-movie .sec-movie-images-area").animate({ "margin-left": "0px" }, 1000);
+        $(".sec.match-schedule-wrap").delay(1000).animate({ "left": "0px", "opacity": "1" }, 1000);
+        $(".sec.ranking-wrap").delay(1000).animate({ "right": "0px", "opacity": "1" }, 1000);
+
+        var main_images_banner = new Swiper('.main-images-banner', {
+            slidesPerView: 1,
+            loop: true,
+            centeredSlides: true,
+            autoplay: true,
+        });
+
+        var swiper_notice = new Swiper('.swiper-notice', {
+            slidesPerView: 4,
+            freeMode: true,
+            breakpoints: {
+                1020: {
+                    slidesPerView: 4,
+                },
+
+                600: {
+                    slidesPerView: 3,
+                },
+
+                320: {
+                    slidesPerView: 2,
+                },
+            },
+        });
+
+
+        $(window).resize(function () {
+            var win_w = $(window).width();
+            var win_h = $(window).height();
+
+            //페이지 사이즈 조정
+            container_padding(win_w);
+            sub_menu_left(win_w);
+            player_position(win_h)
+
+            //swiper_notice.update();
+        });
+
+
+
+
+
+        if (win_w <= 768) {
+            m_player_swiper('player-list-swiper-left', 1);
+        }
+        else {
+            f_player_swiper('player-list-swiper-left', 3);
+        }
+
+        $(document).on("click", ".ls-tabmenu-tpA > li", function (e) {
+            var _this = $(this);
+            var swiper_name = _this.attr("data-swiper");
+
+            if (win_w <= 768) {
+                m_player_swiper(swiper_name, 1);
+            }
+            else {
+                f_player_swiper(swiper_name, 3);
+            }
+        });
+
+        function f_player_swiper(target, slideView) {
+            var play_swiper;
+            var play_swiper_content;
+            if (target == 'player-list-swiper-left') {
+                play_swiper = "player_swiper_left";
+                play_swiper_content = "player-list-swiper-left-content";
+                tartet_swiper_content = "player_swiper_left_content"
+            }
+            else if (target == 'player-list-swiper-right') {
+                play_swiper = "player_swiper_right";
+                play_swiper_content = "player-list-swiper-right-content";
+                tartet_swiper_content = "player_swiper_right_content"
+            }
+            else if (target == 'player-list-swiper-center') {
+                play_swiper = "player_swiper_center";
+                play_swiper_content = "player-list-swiper-center-content";
+                tartet_swiper_content = "player_swiper_center_content"
+            }
+            else if (target == 'player-list-swiper-setter') {
+                play_swiper = "player_swiper_setter";
+                play_swiper_content = "player-list-swiper-setter-content";
+                tartet_swiper_content = "player_swiper_setter_content"
+            }
+            else if (target == 'player-list-swiper-libero') {
+                play_swiper = "player_swiper_libero";
+                play_swiper_content = "player-list-swiper-libero-content";
+                tartet_swiper_content = "player_swiper_lebero_content"
+            }
+
+            var play_swiper = new Swiper('.' + target, {
+                slidesPerView: slideView,
+                spaceBetween: 40,
+                loop: true,
+                centeredSlides: true,
+                autoplay: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+
+                on: {
+                    init: function () {
+                        $(".swiper-slide").find(".img-box img").css("width", "128px");
+                        $(".swiper-slide-active").find(".img-box img").css("width", "220px");
+                    }
+                }
+            });
+
+            play_swiper.on('slideChangeTransitionStart', function () {
+                $(".swiper-slide").find(".img-box img").stop().animate({ "width": "128px" }, 'fast');
+                $(".swiper-slide-active").find(".img-box img").stop().animate({ "width": "220px" }, 'fast');
+            });
+
+            var tartet_swiper_content = new Swiper('.' + play_swiper_content, {
+                slidesPerView: 1,
+                loop: true,
+                autoplay: false,
+                touchRatio: 0,//드래그 금지
+            });
+
+            play_swiper.on('slideChangeTransitionStart', function () {
+                console.log(play_swiper.realIndex);
+                tartet_swiper_content.slideTo(play_swiper.realIndex + 1);
+            });
+
+        }
+
+        function m_player_swiper(target, slideView) {
+            var play_swiper;
+            var play_swiper_content;
+            if (target == 'player-list-swiper-left') {
+                play_swiper = "player_swiper_left";
+                play_swiper_content = "player-list-swiper-left-content";
+                tartet_swiper_content = "player_swiper_left_content"
+            }
+            else if (target == 'player-list-swiper-right') {
+                play_swiper = "player_swiper_right";
+                play_swiper_content = "player-list-swiper-right-content";
+                tartet_swiper_content = "player_swiper_right_content"
+            }
+            else if (target == 'player-list-swiper-center') {
+                play_swiper = "player_swiper_center";
+                play_swiper_content = "player-list-swiper-center-content";
+                tartet_swiper_content = "player_swiper_center_content"
+            }
+            else if (target == 'player-list-swiper-setter') {
+                play_swiper = "player_swiper_setter";
+                play_swiper_content = "player-list-swiper-setter-content";
+                tartet_swiper_content = "player_swiper_setter_content"
+            }
+            else if (target == 'player-list-swiper-libero') {
+                play_swiper = "player_swiper_libero";
+                play_swiper_content = "player-list-swiper-libero-content";
+                tartet_swiper_content = "player_swiper_lebero_content"
+            }
+
+            // play_swiper.destroy();
+
+            var play_swiper = new Swiper('.' + target, {
+                slidesPerView: 1,
+                spaceBetween: slideView,
+                loop: true,
+                centeredSlides: true,
+                autoplay: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+
+                on: {
+                    init: function () {
+                        $(".swiper-slide").find(".img-box img").css("width", "140px");
+                        $(".swiper-slide-active").find(".img-box img").css("width", "200px");
+                    }
+                }
+            });
+
+            play_swiper.on('slideChangeTransitionStart', function () {
+                $(".swiper-slide").find(".img-box img").stop().animate({ "width": "140px" }, 'fast');
+                $(".swiper-slide-active").find(".img-box img").stop().animate({ "width": "200px" }, 'fast');
+            });
+
+            var tartet_swiper_content = new Swiper('.' + play_swiper_content, {
+                slidesPerView: 1,
+                loop: true,
+                autoplay: false,
+                touchRatio: 0,//드래그 금지
+            });
+
+            play_swiper.on('slideChangeTransitionStart', function () {
+                tartet_swiper_content.slideTo(play_swiper.realIndex + 1);
+            });
+
+            // tartet_swiper_content.on('slideChangeTransitionStart', function() { 
+            // 	play_swiper.slideTo(tartet_swiper_content.realIndex-1);
+            // });
+        }
+    });
+
+
+    $(window).resize(function () {
+        var win_w = $(window).width();
+
+        //페이지 사이즈 조정
+        container_padding(win_w);
+        sub_menu_left(win_w);
+
+    });
+
+
+
+    
+    function container_padding(win_w) {
+        var _container = $("#container");
+        var header_w = $("#header").innerWidth();
+        var lnb_w = $(".lnb").innerWidth();
+        var sub_menu_w = $(".sub-menu").innerWidth();
+        var container_padding_left = lnb_w + sub_menu_w;
+        if (win_w > 1200) {
+            _container.css({ "padding-left": container_padding_left + "px" });
+        }
+        else {
+            _container.css({ "padding-left": "0px" });
+        }
+    }
+
+
+    
+    function sub_menu_left(win_w) {
+        var _sub_menu = $(".sub-menu");
+        var header_w = $("#header").innerWidth();
+        var lnb_w = $(".lnb").innerWidth();
+        var sub_menu_left = header_w + lnb_w;
+
+        console.log(sub_menu_left);
+
+        if (win_w > 1024) {
+            _sub_menu.css({ "left": sub_menu_left + "px" });
+            _sub_menu.css({ "display": "block" });
+        }
+        else {
+            _sub_menu.css({ "display": "none" });
+        }
+    }
+
+
+    function player_position(win_h) {
+        var _player_info_wrap = $(".player-info-wrap");
+
+        if (win_h <= 820) {
+            _player_info_wrap.removeClass("responsive-active");
+        } else {
+            _player_info_wrap.addClass("responsive-active");
+        }
+    }
+
+
+</script>
+
+
+       
+        $(window).load(function () {
+            $(window).scrollTop(10);
+            //메인이 아닐때, 예외 페이지 아닐때
+            if ('nozoom' != 'main' && 'nozoom' != 'nozoom') {
+                //가로 1520이상 일때는  축소 적용
+                if (document.documentElement.clientWidth > 1520) {
+                    $(window).scrollTop(10);
+                    var zommRto = 0.9;
+                    while ($(window).scrollTop() > 0) {
+                        $(window).scrollTop(10);
+                        $("#contents").css("zoom", zommRto);
+                        zommRto = zommRto - 0.1;
+                    }
+                    
+                }
+            }
+        });
+
+    
+</body>
+</html>
+<div id="header_sns">
+    	<ul>
+        	<li>
+            	<a href="https://www.instagram.com/aipeppers/" target="_blank" rel="nosublink"><img src="/images/header_icon1.png" alt="인스타그램"></a>
+            </li>
+            <li>
+            	<a href="https://www.youtube.com/channel/UCrIylx59jK4LO-0GXY4iQ4A" target="_blank" rel="nosublink"><img src="/images/header_icon2.png" alt="유튜브"></a>
+            </li>
+            <li>
+            	<a href="https://post.naver.com/aipeppers" target="_blank" rel="nosublink"><img src="/images/header_icon3.png" alt="네이버포스트"></a>
+            </li>
+            <li>
+                <a href="https://tv.naver.com/aipeppers" target="_blank" rel="nosublink"><img src="/images/header_icon5.png" alt="네이버 TV"></a>
+            </li>
+            <li>
+            	<a href="https://www.kovo.co.kr/" target="_blank" rel="nosublink"><img src="/images/header_icon4.png" alt="배구연맹"></a>
+            </li>
+        </ul>
+    </div>

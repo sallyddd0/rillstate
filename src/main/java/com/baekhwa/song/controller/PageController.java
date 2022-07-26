@@ -32,4 +32,21 @@ public class PageController {
 	public String goods() {
 		return "goods/index";
 	}
+	
+	@GetMapping("/match")
+	public String match() {
+		return "match/index";
+	}
+	@GetMapping("/media")
+	public String media() {
+		return "media/index";
+	}
+	@GetMapping("/ticket")
+	public String ticket() {
+		return "ticket/index";
+	}
+	@GetMapping("/club")
+	public String club() {
+		return "club/index";
+	}
 }

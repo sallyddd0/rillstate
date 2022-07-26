@@ -42,19 +42,26 @@ style="min-width: 1024px;">
     					<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin/home">관리자페이지</a></li>
     				</ul>
     			</div>
-    		</div>
     		<div id="top-menu">
    				<div id="logo">
    					<a href="/" ><img alt="릴스테이트" src="/images/logo_em.png"></a>
    				</div>
-   				<ul class="flex" id="left_menu">
-   					<li><a href="/board/club">CLUB</a></li>
-   					<li><a href="/board/match">MATCH</a></li>
+   				<ul class="flex around" id="left_menu">
+   					<li><a href="/club">CLUB</a>
+	   					<ul style="display: none; opacity: 1;">
+	                	<li><a href="/club" rel="nosublink">구단주 인사말</a></li>
+	                    <li><a href="/club_sub2.php" rel="nosublink">구단소개</a></li>
+	                    <li><a href="/club_sub3.php" rel="nosublink">엠블럼 </a></li>
+	                    <li><a href="/club_sub4.php" rel="nosublink">경기장 안내</a></li>
+	                    <li><a href="/club_sub5.php" rel="nosublink">구단조직</a></li>
+	                	</ul>
+             	   </li>
+   					<li><a href="/match">MATCH</a></li>
    					<li><a href="/goods">GOODS</a></li>
    				</ul>
-   				<ul class="flex" id="right_menu">
-   					<li><a href="/board/ticket">TICKET</a></li>
-   					<li><a href="/board/media">MEDIA</a></li>
+   				<ul class="flex around" id="right_menu">
+   					<li><a href="/ticket">TICKET</a></li>
+   					<li><a href="/media">MEDIA</a></li>
    					<li><a href="/tohills">TO.HILLS</a></li>
    				</ul>
     		</div>
@@ -78,6 +85,7 @@ style="min-width: 1024px;">
     			});
     		</script>
     	</div>
+    	
     </header>
     <main th:replace="${main}">
     	메인섹션이 삽입되는 영역입니다.

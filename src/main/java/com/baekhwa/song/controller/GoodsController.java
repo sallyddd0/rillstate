@@ -34,7 +34,7 @@ public class GoodsController {
 	public String indexlist (Model model) {
 		return service.indexlist(model);
 	}
-	@GetMapping(path = {"/common/goods/{gno}"})
+	@GetMapping(path = "/common/goods/{gno}")
 	public String detail(@PathVariable long gno,Model model) {
 		return service.detail(gno,model);
 	}

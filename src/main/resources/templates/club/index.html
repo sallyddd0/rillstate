@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
+<head>
+	 <link rel="stylesheet" href="/css/board/clubindex.css">
+	<script type="text/javascript" src="/js/visual.js"></script>
+
+<title>club</title>
+</head>
+<main>
+	<h1>메인컨텐츠</h1>
+	<div class="wrap">
+		
+		<section id="content">
+			<h1>메인컨텐츠</h1>
+			<div class="sub_title_back">
+			<h2>TEAM</h2>
+			</div>
+			<div class="wrap view-size">
+				<div class="all_sub1_title team_title">
+				    <ul>
+				        <li>
+				            <a href="#">선수</a>
+				        </li>
+				        <li>
+				            <a href="#">코칭스태프</a>
+				        </li>
+				    </ul>
+				</div>
+				
+					<div id="team_sub1_section1"> 
+						<div id="team_sub1_section1_subtitle">
+					    	<ul>
+					        	<li>
+					            	<a href="#none">ALL</a>
+					            </li>
+					            <li>
+					            	<a href="#none">LEFT</a>
+					            </li>
+					            <li>
+					            	<a href="#none">RIGHT</a>
+					            </li>
+					            <li>
+					            	<a href="#none">CENTER</a>
+					            </li>
+					            <li>
+					            	<a href="#none">SETTER</a>
+					            </li>
+					            <li>
+					            	<a href="#none">LIBERO</a>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				
+				<div id="data">
+				의 ajax을 결과를 삽입하는 영역
+				</div>
+			</div>
+		</section>
+	</div>
+</main>
+</html>

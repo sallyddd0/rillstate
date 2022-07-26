@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
                 .authorizeRequests(authorize ->
                         authorize
-                        		.antMatchers("/", "/common/**","/request-key/*","/tohills","/tohills/*","/sign/*","/goods","/goods/*").permitAll()
+                        		.antMatchers("/", "/common/**","/request-key/*","/club","/club/**","/sign/*","/goods","/goods/*","/match","/match/*").permitAll()
                         		.antMatchers("/css/**","/js/**","/images/**", "/favicon.ico*","/summernote/**").permitAll()
                                 .antMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
