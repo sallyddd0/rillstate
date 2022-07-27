@@ -13,10 +13,5 @@ public class AdminController {
 		return "/admin/default";
 	}
 	
-	@GetMapping("goods/write")
-	public String goods() {
-		return "admin/goods/write";
-	}
-	
 	
 }

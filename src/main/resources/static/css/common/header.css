@@ -68,7 +68,7 @@ body > header {
     float: left;
     position: relative;
 }
-#top-menu ul li a{
+#top-menu > ul > li > a{
     font-size: 25px;
     font-family: Notosans-Bold;
     font-weight: 400;
@@ -85,6 +85,20 @@ menu>.wrap ul li:not(:first-child){
 #top-menu>.wrap ul li a{
 	margin: 0 5px;
 	padding: 0.5em 1em;
+}
+#left_menu > li:nth-child(3) > .sub{
+	position: absolute;
+	background-color: gray;
+	top:28px;
+	z-index: 100;
+	width: 500px;
+	display: none;
+}
+#left_menu > li:nth-child(3):hover > .sub{
+	display: flex;
+}
+#left_menu > li:nth-child(3) > ol > li{
+	margin: 0 10px;
 }
 #logo{
 	text-align: center;

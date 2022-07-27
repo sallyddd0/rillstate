@@ -11,6 +11,20 @@ th:replace="~{layout/layout-admin :: layout(~{::head}, ~{::main})}">
 	<script src="/js/my-summernote.js"></script>
 	<script src="/js/fileupload.js"></script>
 	<link href="/css/admin/goods/write.css" rel="stylesheet">
+	<script type="text/javascript">
+		$(function(){
+			$("#catea").change(function(){
+				$.ajax({
+					url:"/admin/category/"+$(this).val(),
+					type:"get",
+					success:function(result){
+						$("#cate2").html(result);
+					}
+					
+				});
+			});
+		});
+	</script>
 	
 </head>
 <main>
@@ -22,6 +36,15 @@ th:replace="~{layout/layout-admin :: layout(~{::head}, ~{::main})}">
 				<p>상품 등록</p>
 				<form action="/admin/goods" method="post">
 					<ul>
+						<li>
+							<select id="catea">
+								<option>1차카테고리</option>
+								<th:block th:each="ca :${cateA}">
+								<option th:value="${ca.code}">[[${ca.koName}]]</option>
+								</th:block>
+							</select>
+							<span id="cate2"></span>
+						</li>
 						<li>
 							<label>상품명</label>
 							<input type="text" name="name" placeholder="상품명">

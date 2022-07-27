@@ -17,4 +17,10 @@ public interface GoodsService {
 
 	String detail(long gno, Model model);
 
+	void goodsListByCaNo(long caNo, Model model);
+
+	void goodsListByCategory(long caNo, Model model);
+
+	Object categoryList(long caNo);
+
 }

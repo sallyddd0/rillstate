@@ -30,7 +30,7 @@ public class PageController {
 
 	@GetMapping("/goods")
 	public String goods() {
-		return "goods/index";
+		return "goods/list";
 	}
 	
 	@GetMapping("/match")

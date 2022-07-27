@@ -4,24 +4,7 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 <head>
 	 <link rel="stylesheet" href="/css/board/list.css">
 	<script type="text/javascript" src="/js/visual.js"></script>
-    <script type="text/javascript">
-    	$(function(){
-    		getFaq();
-    		$(".faq-menu>li").click(getFaq);
-    	});
-    	
-    	function getFaq(){
-    		
-    		var divno=$(this).index() < 0 ? 0 :  $(this).index();
-    		var url="/club/"+ divno;
-			$.get(url,function(result){
-						$("#data").html(result);
-					}//success
-			);
-		}
-    	
-    	
-    </script>
+   
 <title>club</title>
 </head>
 <main>
@@ -31,19 +14,7 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 		<section id="content">
 			<h1>메인컨텐츠</h1>
 			
-			<div class="wrap view-size">
-				<p class="ptit">선수소개</p>
-				<ul class="faq-menu flex between">
-					<li><a href="#">LEFT</a></li>
-					<li><a href="#">RIGHT</a></li>
-					<li><a href="#">CENTER</a></li>
-					<li><a href="#">SETTER</a></li>
-					<li><a href="#">LIBERO</a></li>
-				</ul>
-				<div id="data">
-				의 ajax을 결과를 삽입하는 영역
-				</div>
-			</div>
+			
 		</section>
 	</div>
 </main>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.baekhwa.song.domain.dto.goods.GoodsInsertDTO;
+import com.baekhwa.song.domain.entity.CategoryA;
 import com.baekhwa.song.service.GoodsService;
 
 @Controller
@@ -18,6 +19,36 @@ public class GoodsController {
 	
 	@Autowired
 	private GoodsService service;
+	
+	@GetMapping("/common/categorys/{caNo}/goods")
+	public String goodsListByCategory(@PathVariable long caNo, Model model) {
+		service.goodsListByCaNo(caNo, model);
+		return "goods/list";
+	}
+	
+	@GetMapping("/common/category-a/{caNo}/goods")
+	public String goodsListByCategorya(@PathVariable long caNo, Model model) {
+		service.goodsListByCategory(caNo, model);
+		return "goods/list";
+	}
+	
+	
+	//ajax로 요청
+	@GetMapping("/admin/category/{caNo}")
+	public String category(@PathVariable long caNo, Model model) {
+		model.addAttribute("option", service.categoryList(caNo));
+		return "admin/goods/category-data";
+	}
+	
+	//상품등록페이지이동
+	@GetMapping("/admin/goods/write")
+	public String goods(Model model) {
+		model.addAttribute("cateA", CategoryA.values());
+		for(CategoryA cate : CategoryA.values()) {
+			System.out.println(cate.getKoName());
+		}
+		return "admin/goods/write";
+	}
 	
 	@ResponseBody
 	@PostMapping("/admin/goods/fileupload")

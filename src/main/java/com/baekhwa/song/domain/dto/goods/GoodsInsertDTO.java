@@ -20,6 +20,8 @@ public class GoodsInsertDTO {
 	private String addImgName;
 	private String content;
 	
+	private long caNo;
+	
 	public Goods toEntity() {
 		if(isRate) {
 			sale=price*sale/100;

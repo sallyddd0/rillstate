@@ -17,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
@@ -65,10 +66,15 @@ public class Goods extends BaseTimeEntity{
 	public Goods addFile(GoodsFile file) {
 		files.add(file);
 		return this;
-		
 	}
 
-
+	@Builder.Default	
+	@JoinColumn//categorys_ca_no
+	@ManyToMany(cascade = CascadeType.ALL)
+	Set<Category> categorys=new HashSet<>();
 	
-
+	public Goods addCategory(Category category) {
+		categorys.add(category);
+		return this;
+	}
 }

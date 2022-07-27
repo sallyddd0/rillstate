@@ -11,10 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.baekhwa.song.domain.dto.goods.CategoryDto;
 import com.baekhwa.song.domain.dto.goods.GoodsDetailDTO;
 import com.baekhwa.song.domain.dto.goods.GoodsInsertDTO;
 import com.baekhwa.song.domain.dto.goods.GoodsListDTO;
+import com.baekhwa.song.domain.entity.CategoryA;
+import com.baekhwa.song.domain.entity.CategoryRepository;
 import com.baekhwa.song.domain.entity.Goods;
+import com.baekhwa.song.domain.entity.GoodsEntityRepository;
 import com.baekhwa.song.domain.entity.GoodsFile;
 import com.baekhwa.song.domain.entity.GoodsFileRepository;
 import com.baekhwa.song.service.GoodsService;
@@ -23,8 +27,47 @@ import com.baekhwa.song.service.GoodsService;
 public class GoodsServiceProc implements GoodsService {
 
 	@Autowired
-	GoodsFileRepository repository;
+	GoodsEntityRepository repository;
+	
+	@Autowired
+	CategoryRepository categoryRepository;
 
+	@Override
+	public void goodsListByCaNo(long caNo, Model model) {
+		for(CategoryA catea:CategoryA.values()) {
+			if(catea.getCode()==caNo/100*100) {
+				model.addAttribute("catea", catea);
+			}
+		}
+		
+		CategoryDto cateInfo=categoryRepository.findById(caNo).map(CategoryDto::new).get();
+		model.addAttribute("cateInfo", cateInfo);
+		
+		
+		
+		model.addAttribute("list", 
+				repository.findAllByCategorysCaNo(caNo)
+				.stream()
+				.map(GoodsListDTO::new)
+				.toList());
+		
+	}
+	
+	//카테고리별 상품목록
+	@Override
+	public void goodsListByCategory(long caNo, Model model) {
+		for(CategoryA catea:CategoryA.values()) {
+			if(catea.getCode()==caNo) {
+				model.addAttribute("catea", catea);
+			}
+		}
+		
+		model.addAttribute("list", 
+									repository.findAllByCategorysCaNoBetween(caNo, caNo+99).stream()
+									.map(GoodsListDTO::new)
+									.toList());
+	}
+	
 	@Override
 	public String tempFileupload(MultipartFile file) {
 		
@@ -114,6 +157,12 @@ public class GoodsServiceProc implements GoodsService {
 				repository.findById(gno).map(GoodsDetailDTO::new).get());
 		
 		return "admin/goods/detail";
+	}
+
+	@Override
+	public Object categoryList(long caNo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

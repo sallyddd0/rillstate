@@ -16,6 +16,7 @@ public class GoodsDetailDTO {
 	private int price;
 	private int sale;
 	private int stock;
+	
 	private String content;
 	private List<GoodsFileDTO> files;
 
@@ -31,9 +32,7 @@ public class GoodsDetailDTO {
 		this.files=e.getFiles().stream()
 				.map(GoodsFileDTO::new)
 				.collect(Collectors.toList());
-		
 	}
-	
-	
+		
 	
 }
