@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.baekhwa.song.domain.entity.Member;
-import com.baekhwa.song.domain.entity.MemberRepository;
+import com.baekhwa.song.domain.entity.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
+<head>
+	 <link rel="stylesheet" href="/css/board/list.css">
+	<script type="text/javascript" src="/js/visual.js"></script>
+   	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".summernote").summernote();
+		});
+	</script>
+<title>media</title>
+</head>
+<main>
+		<h1>DETAIL-PAGE</h1>
+		<div>
+			<table id="detail-view">
+				<tr>
+					<td>글번호</td>
+					<td id="no">[[${detail.no}]]</td>
+				</tr>
+				<tr>
+					<td>제목</td>
+					<td th:text="${detail.title}">제목이 들어갈꺼에요</td>
+				</tr>
+				<tr>
+					<td>작성일</td>
+					<td th:text="${detail.updatedDate}">최종수정일이 들어갈꺼에요</td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td th:text="${detail.writer}">작성자의 이메일이 들어갈꺼에요</td>
+				</tr>
+				<tr>
+					<td>조회수</td>
+					<td th:text="${detail.readCount}">조회수가 들어갈꺼에요</td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td>
+						<div th:utext="${detail.content}">[(${detail.content})]</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="/board">LIST VIEW</a>
+						<button type="button" id="btn-edit">detail edit</button>
+						<button type="button" id="btn-del">detail delete</button>
+					</td>
+				</tr>
+			</table>
+			<script th:inline="javascript">
+				$(function(){
+					$("#btn-del").click(function(){
+						var result=confirm("do you want delete?");
+						/* 확인:true 취소:false */
+						if(!result)return;
+						var no="[[${detail.no}]]";
+						//alert(no);
+						$.ajax({
+							url:"/board/"+no,
+							type:"post",
+							data:{"_method":"delete"},
+							success:function(){
+								location.href="/board";
+							}
+							
+						});
+						
+					});
+					
+					$("#btn-edit").click(function(){
+						$("#detail-view").hide();
+						$("#edit-form").show();
+					});
+					$("#btn-cancel").click(function(){
+						$("#detail-view").show()
+						$("#edit-form").hide();
+					});
+					
+				});
+			</script>
+			<!-- //////////////////수정시 보일화면 -->
+			<form style="display: none;" id="edit-form" th:action="|/board/${detail.no}|" method="post">
+				<table>
+					<tr>
+						<td>제목</td>
+						<td>
+							<input type="text" name="title" th:value="${detail.title}">
+						</td>
+					</tr>
+					<tr>
+						<td>작성일</td>
+						<td th:text="${detail.updatedDate}">최종수정일이 들어갈꺼에요</td>
+					</tr>
+					<tr>
+						<td>작성자</td>
+						<td th:text="${detail.writer}">작성자의 이메일이 들어갈꺼에요</td>
+					</tr>
+					<tr>
+						<td>조회수</td>
+						<td th:text="${detail.readCount}">조회수가 들어갈꺼에요</td>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td>
+							<textarea name="content" class="summernote">[(${detail.content})]</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<a href="/board">LIST VIEW</a>
+							<input type="hidden" name="_method" value="PUT">
+							<button type="submit">수정완료</button>
+							<button type="button" id=btn-cancel>취소</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</main>
+</html>

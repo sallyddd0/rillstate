@@ -12,9 +12,9 @@ import org.springframework.test.annotation.Rollback;
 
 import com.baekhwa.song.domain.entity.Division;
 import com.baekhwa.song.domain.entity.FaqEntity;
-import com.baekhwa.song.domain.entity.FaqEntityRepository;
 import com.baekhwa.song.domain.entity.Member;
-import com.baekhwa.song.domain.entity.MemberRepository;
+import com.baekhwa.song.domain.entity.repository.FaqEntityRepository;
+import com.baekhwa.song.domain.entity.repository.MemberRepository;
 import com.baekhwa.song.security.MemberRole;
 
 @SpringBootTest

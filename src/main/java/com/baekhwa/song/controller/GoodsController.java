@@ -14,6 +14,9 @@ import com.baekhwa.song.domain.dto.goods.GoodsInsertDTO;
 import com.baekhwa.song.domain.entity.CategoryA;
 import com.baekhwa.song.service.GoodsService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Controller
 public class GoodsController {
 	

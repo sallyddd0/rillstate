@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.baekhwa.song.domain.dto.customer.FaqListDTO;
 import com.baekhwa.song.domain.entity.Division;
-import com.baekhwa.song.domain.entity.FaqEntityRepository;
+import com.baekhwa.song.domain.entity.repository.FaqEntityRepository;
 import com.baekhwa.song.service.CustomerService;
 
 @Service

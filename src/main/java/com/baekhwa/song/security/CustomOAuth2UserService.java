@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import com.baekhwa.song.domain.entity.Member;
-import com.baekhwa.song.domain.entity.MemberRepository;
+import com.baekhwa.song.domain.entity.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
 

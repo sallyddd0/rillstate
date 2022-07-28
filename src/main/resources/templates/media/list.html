@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
+<head>
+	 <link rel="stylesheet" href="/css/board/list.css">
+	<script type="text/javascript" src="/js/visual.js"></script>
+   
+<title>media</title>
+</head>
+<main>
+	<h1>MEDIA</h1>
+		<div>
+			<p><a href="/media/write">글쓰기</a></p>
+			<table>
+				<thead>
+					<tr>
+						<td>글번호</td>
+						<td>제목</td>
+						<td>조회수</td>
+						<td>작성자</td>
+						<td>작성일</td>
+					</tr>
+				</thead>
+				
+			</table>
+			<div>
+				
+				
+			</div>
+		</div>
+</main>
+</html>

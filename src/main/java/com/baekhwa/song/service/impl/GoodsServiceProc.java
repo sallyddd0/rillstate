@@ -16,11 +16,11 @@ import com.baekhwa.song.domain.dto.goods.GoodsDetailDTO;
 import com.baekhwa.song.domain.dto.goods.GoodsInsertDTO;
 import com.baekhwa.song.domain.dto.goods.GoodsListDTO;
 import com.baekhwa.song.domain.entity.CategoryA;
-import com.baekhwa.song.domain.entity.CategoryRepository;
 import com.baekhwa.song.domain.entity.Goods;
-import com.baekhwa.song.domain.entity.GoodsEntityRepository;
 import com.baekhwa.song.domain.entity.GoodsFile;
-import com.baekhwa.song.domain.entity.GoodsFileRepository;
+import com.baekhwa.song.domain.entity.repository.CategoryRepository;
+import com.baekhwa.song.domain.entity.repository.GoodsEntityRepository;
+import com.baekhwa.song.domain.entity.repository.GoodsFileRepository;
 import com.baekhwa.song.service.GoodsService;
 
 @Service

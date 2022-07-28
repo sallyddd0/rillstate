@@ -5,8 +5,11 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
     <link rel="stylesheet" href="/css/index.css">
     <script type="text/javascript" src="/js/visual.js"></script>
     <script type="text/javascript" src="/js/goodslist.js"></script>
-    
-    <!-- 자바스크립트 url들 시큐리티 설정해주세요  -->
+ <script type="text/javascript">
+    	$(function(){
+    		
+    	});
+    </script>
 </head>
 <main>
 	<h1>메인컨텐츠</h1>
@@ -21,8 +24,8 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 			<h1>메인컨텐츠</h1>
 			<div class="wrap view-size">
 				<section id="goods-list">
-				<h1>상품리스트</h1>
-				<div class="wrap">상품리스트 녀세요.</div>
+					<h1>상품리스트</h1>
+					<div class="wrap">상품리스트 녀세요.</div>
 				</section>
 				<!-- <section id="map-sec">
 					<h1>다음지도</h1>

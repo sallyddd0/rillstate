@@ -13,7 +13,7 @@ import com.baekhwa.song.domain.dto.visual.VisualInsertDTO;
 import com.baekhwa.song.domain.dto.visual.VisualListDTO;
 import com.baekhwa.song.domain.dto.visual.VisualUpdateDto;
 import com.baekhwa.song.domain.entity.VisualFile;
-import com.baekhwa.song.domain.entity.VisualFileRepository;
+import com.baekhwa.song.domain.entity.repository.VisualFileRepository;
 import com.baekhwa.song.service.VisualService;
 import com.baekhwa.song.utils.MyFileUtils;
 

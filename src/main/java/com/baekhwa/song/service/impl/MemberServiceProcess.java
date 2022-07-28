@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.baekhwa.song.domain.dto.member.MemberInsertDTO;
-import com.baekhwa.song.domain.entity.MemberRepository;
+import com.baekhwa.song.domain.entity.repository.MemberRepository;
 import com.baekhwa.song.security.MemberRole;
 import com.baekhwa.song.service.MemberService;
 import com.baekhwa.song.utils.ClientIP;

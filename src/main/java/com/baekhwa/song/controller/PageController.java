@@ -17,7 +17,6 @@ public class PageController {
 		return "redirect:/";
 	}
 	
-	
 	@GetMapping("/sign/signup")
 	public String signup() {
 		return "sign/signup";
@@ -37,10 +36,10 @@ public class PageController {
 	public String match() {
 		return "match/index";
 	}
-	@GetMapping("/media")
-	public String media() {
-		return "media/index";
-	}
+
+	/*
+	 * @GetMapping("/media") public String media() { return "media/list"; }
+	 */
 	@GetMapping("/ticket")
 	public String ticket() {
 		return "ticket/index";
@@ -49,4 +48,5 @@ public class PageController {
 	public String club() {
 		return "club/index";
 	}
+
 }
