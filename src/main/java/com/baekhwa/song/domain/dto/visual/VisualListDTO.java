@@ -14,6 +14,7 @@ public class VisualListDTO {
 	private long size;
 	private String title;
 	private String sub;
+	private long num;
 	private boolean isShow;
 	
 	public VisualListDTO(VisualFile e) {
@@ -24,6 +25,7 @@ public class VisualListDTO {
 		this.size = e.getSize();
 		this.title = e.getTitle();
 		this.sub = e.getSub();
+		this.num = e.getNum();
 		this.isShow=e.isShow();
 	}
 	

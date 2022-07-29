@@ -32,9 +32,9 @@ public class VisualServiceProc implements VisualService {
 		dto.addFileData(fileData);
 		//db저장
 		long lastNum=visualFileRepository.getLastNum(); 
-		dto.setNum(++lastNum);
+		//dto.setNum(++lastNum);
 		 
-		visualFileRepository.save(dto.toVisualFile());
+		visualFileRepository.save(dto.toVisualFile().setNum(++lastNum));
 		return "redirect:/admin/visuals";
 	}
 

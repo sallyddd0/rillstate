@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#content > div > h2{
+	background-color: black;
+    line-height: 200px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 3.0rem;
+    color: #ffffff;
+}
+#map-sec{
+	width: 300px;
+	height: 300px;
+}

@@ -16,6 +16,5 @@ public interface VisualFileRepository extends JpaRepository<VisualFile, Long>{
 	@Query("select max(v.num) from VisualFile v")
 	long getLastNum();
 
-
 	
 }

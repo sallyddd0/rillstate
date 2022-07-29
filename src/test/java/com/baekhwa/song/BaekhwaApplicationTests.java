@@ -1,5 +1,6 @@
 package com.baekhwa.song;
 
+import java.time.LocalDateTime;
 import java.util.stream.IntStream;
 
 import javax.transaction.Transactional;
@@ -12,6 +13,7 @@ import org.springframework.test.annotation.Rollback;
 
 import com.baekhwa.song.domain.entity.Division;
 import com.baekhwa.song.domain.entity.FaqEntity;
+import com.baekhwa.song.domain.entity.MediaEntity;
 import com.baekhwa.song.domain.entity.Member;
 import com.baekhwa.song.domain.entity.repository.FaqEntityRepository;
 import com.baekhwa.song.domain.entity.repository.MemberRepository;
@@ -46,7 +48,7 @@ class BaekhwaApplicationTests {
 			
 		}
 	
-	@Test
+	//@Test
 	void 관리자생성() {
 		memberRepository.save(Member.builder()
 				.email("admin2").pass(pe.encode("1111")).name("관리자").userIp("127.0.0.1")
@@ -79,5 +81,18 @@ class BaekhwaApplicationTests {
 		//update member set name=?, pass=?, updated_date=? where mno=?
 		//memberRepository.save(entity);
 	}
+	
+	 //@Test
+		/*
+		 * void testJpa() { MediaEntity q1 = new MediaEntity();
+		 * q1.setSubject("sbb가 무엇인가요?"); q1.setContent("sbb에 대해서 알고 싶습니다.");
+		 * q1.setCreatedDate(LocalDateTime.now()); this.memberRepository.save(q1); //
+		 * 첫번째 질문 저장
+		 * 
+		 * Question q2 = new Question(); q2.setSubject("스프링부트 모델 질문입니다.");
+		 * q2.setContent("id는 자동으로 생성되나요?"); q2.setCreateDate(LocalDateTime.now());
+		 * this.questionRepository.save(q2); // 두번째 질문 저장 }
+		 */
+	
 
 }

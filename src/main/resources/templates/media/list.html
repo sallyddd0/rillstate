@@ -21,7 +21,15 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 						<td>작성일</td>
 					</tr>
 				</thead>
-				
+				<tbody>
+					<tr th:each="media : ${mediaList}">
+						<td th:text="${media.no}"></td>
+						<td th:text="${media.title}"></td>
+						<td th:text="${media.readCount}"></td>
+						<td th:text="${media.writer}"></td>
+						<td th:text="${media.createdDate}"></td>
+					</tr>
+				</tbody>
 			</table>
 			<div>
 				

@@ -27,7 +27,7 @@ th:replace="~{layout/layout1 :: layout(~{::head}, ~{::main})}">
 					<input type="file" name="file" id="file" multiple="multiple">
 				</div>				
 				<p>
-					<input type="hidden" name="writer" id="writer" th:value="${#authentication.principal.mno}" />
+					<input type="hidden" name="writer" id="writer" th:value="${#authentication.principal.name}" />
 					<input type="hidden" id="token" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 					<button type="submit">done</button>
 				</p>

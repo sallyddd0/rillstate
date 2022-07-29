@@ -64,10 +64,11 @@ public class GoodsController {
 		return service.list(model);
 	}
 	
-	@GetMapping("/common/goods")
+	@GetMapping("/goods")
 	public String indexlist (Model model) {
 		return service.indexlist(model);
 	}
+	
 	@GetMapping(path = "/common/goods/{gno}")
 	public String detail(@PathVariable long gno,Model model) {
 		return service.detail(gno,model);

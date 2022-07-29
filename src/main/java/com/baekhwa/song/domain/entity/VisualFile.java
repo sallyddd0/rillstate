@@ -6,11 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import com.baekhwa.song.domain.dto.visual.VisualUpdateDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -57,5 +59,9 @@ public class VisualFile {
 		return this;
 	}
 
+	public VisualFile setNum(long num) {
+		this.num=num;
+		return this;
+	}
 
 }

@@ -26,11 +26,6 @@ public class PageController {
 	public String toHills() {
 		return "toHills/index";
 	}
-
-	@GetMapping("/goods")
-	public String goods() {
-		return "goods/list";
-	}
 	
 	@GetMapping("/match")
 	public String match() {
